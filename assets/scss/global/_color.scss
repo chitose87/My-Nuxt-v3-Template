@@ -1,0 +1,154 @@
+@use "sass:map";
+
+$__static-color: (
+  mono:(
+    0:#000,
+    1:#fff
+  ),
+  black:(
+    600:rgba(#000, 0.08), //button
+    500:rgba(#000, 0.14), //button hover
+    400:rgba(#000, 0.32),
+    300:rgba(#000, 0.48),
+    200:rgba(#000, 0.64),
+    100:rgba(#000, 0.8),
+    0:#000,
+  ),
+  gray:(
+    700: #F9FAF9,
+    650: #F6F7F6,
+    600: #F5F5F5,
+    550: #F1F2F1,
+    500: #D6D6D6,
+    400: #ADADAD,
+    300: #858585,
+    200: #5C5C5C,
+    150: #515151,
+    100: #333333,
+  ),
+  green:(
+    TBD100:#CCECE3,
+    TBD150:#99DAC7,
+    TBD200:#66C7AB,
+    TBD250:#33B58F,
+    300:#00A273,
+    200:#018463,
+  ),
+  blue:(
+    600:#E8F3F8,
+    TBD150:#C5E3F1,
+    TBD200:#97CDE5,
+    TBD220:#63B3DA,
+    TBD250:#2B9ACD,
+    300:#0081C0,
+    200:#124F72,
+  ),
+  red:(
+    600: #FFF5F5,
+    300: #fb0020,
+    200: #e70924,
+    100: #990000, //tag
+  )
+);
+
+@function color-mono($step:0) {
+  @return map.get($__static-color, mono, $step);
+}
+
+@function color-black($step:0) {
+  @return map.get($__static-color, black, $step);
+}
+
+@function color-gray($step:300) {
+  @return map.get($__static-color, gray, $step);
+}
+
+@function color-green($step:300) {
+  @return map.get($__static-color, green, $step);
+}
+
+@function color-blue($step:300) {
+  @return map.get($__static-color, blue, $step);
+}
+
+@function color-red($step:300) {
+  @return map.get($__static-color, red, $step);
+}
+
+// semantic name
+$__list: (
+  "color-border":color-gray(400),
+  "color-text":color-mono(0),
+  "color-text-white":color-mono(1),
+  "color-text-secondary":color-gray(150),
+  "color-text-green":color-green(200),
+  "color-text-blue":color-blue(200),
+  "color-text-red":color-red(100),
+  "color-bg":color-mono(1),
+  "color-bg-secondary":color-gray(650),
+  "color-bg-secondary-a":color-black(600),
+  "color-bg-blue":color-blue(600),
+  "color-bg-red":color-red(600),
+  "color-attention":color-red(),
+  "color-link":color-red()
+);
+@mixin setCustomValue() {
+  @each $key, $value in $__list {
+    --#{$key}: #{$value};
+  }
+}
+
+$color-code-border: map.get($__list, "color-border") !default;
+$color-border: var(--color-border) !default;
+
+$color-code-text: map.get($__list, "color-text") !default;
+$color-text: var(--color-text) !default;
+$color-code-text-white: map.get($__list, "color-text-white") !default;
+$color-text-white: var(--color-text-white) !default;
+$color-code-text-secondary: map.get($__list, "color-text-secondary") !default;
+$color-text-secondary: var(--color-text-secondary) !default;
+$color-code-text-green: map.get($__list, "color-text-green") !default;
+$color-text-green: var(--color-text-green) !default;
+$color-code-text-blue: map.get($__list, "color-text-blue") !default;
+$color-text-blue: var(--color-text-blue) !default;
+$color-code-text-red: map.get($__list, "color-text-red") !default;
+$color-text-red: var(--color-text-red) !default;
+
+$color-code-bg: map.get($__list, "color-bg") !default;
+$color-bg: var(--color-bg) !default;
+$color-code-bg-secondary: map.get($__list, "color-bg-secondary") !default;
+$color-bg-secondary: var(--color-bg-secondary) !default;
+$color-code-bg-secondary-a: map.get($__list, "color-bg-secondary-a") !default;
+$color-bg-secondary-a: var(--color-bg-secondary-a) !default;
+$color-code-bg-blue: map.get($__list, "color-bg-blue") !default;
+$color-bg-blue: var(--color-bg-blue) !default;
+$color-code-bg-red: map.get($__list, "color-bg-red") !default;
+$color-bg-red: var(--color-bg-red) !default;
+
+$color-code-attention: map.get($__list, "color-attention") !default;
+$color-attention: var(--color-attention) !default;
+$color-code-link: map.get($__list, "color-link") !default;
+$color-link: var(--color-link) !default;
+
+//
+$gradient-multi: linear-gradient(90deg, #53AD69 0%, #173B27 15.27%, #2C654A 30.7%, #418F6E 46.35%, #6DB589 63.54%, #77F775 80.35%, #74F8F7 100%);
+$gradient-hover: linear-gradient(90deg, #239E7D 0%, #11906E 26.04%, #028462 51.46%, #0B8C62 76.06%, #26A464 100%);
+$gradient-frame: linear-gradient(298.06deg, #01916D 81.45%, #47EC8C 100%);
+$gradient-icon: linear-gradient(180deg, #418F6E 0%, #7BC18C 100%);
+
+$gradient-cover-black: linear-gradient(90deg, rgba(51, 51, 51, 0.3) 0%, rgba(77, 77, 77, 0) 70%);
+$gradient-cover-white: linear-gradient(125deg, rgba(255, 255, 255, 0.5) 10%, rgba(255, 255, 255, 0) 80%);
+
+// shadow
+$shadow: 0px 0px 12px rgba(0, 0, 0, 0.1);
+
+// L系 (一部値のみコピーしている
+$shadow-lg: 0px 0px 32px rgba(color-mono(0), 0.4), 0px 0px 16px rgba(color-mono(0), 0.4), 0px 0px 8px rgba(color-mono(0), 0.4);
+$shadow-lg-sp: 0px 0px 20px rgba(color-mono(0), 0.5), 0px 0px 20px rgba(color-mono(0), 0.3), 0px 0px 4px rgba(color-mono(0), 0.5);
+$shadow-md: 0px 0px 16px rgba(color-mono(0), 0.6), 0px 0px 8px rgba(color-mono(0), 0.4), 0px 0px 2px rgba(color-mono(0), 0.3);
+$shadow-sm: 0px 0px 16px color-mono(0), 0px 0px 8px rgba(color-mono(0), 0.8), 0px 0px 6px rgba(color-mono(0), 0.2);
+
+$shadow-lg-invert: 0px 0px 32px rgba(color-mono(1), 0.4), 0px 0px 16px rgba(color-mono(1), 0.4), 0px 0px 8px rgba(color-mono(1), 0.4);
+$shadow-lg-sp-invert: 0px 0px 20px rgba(color-mono(1), 0.6), 0px 0px 20px rgba(color-mono(1), 0.4), 0px 0px 4px rgba(color-mono(1), 0.6);
+$shadow-md-invert: 0px 0px 16px rgba(color-mono(1), 0.8), 0px 0px 8px rgba(color-mono(1), 0.6), 0px 0px 2px rgba(color-mono(1), 0.5);
+$shadow-sm-invert: 0px 0px 16px color-mono(1), 0px 0px 8px rgba(color-mono(1), 0.8), 0px 0px 6px rgba(color-mono(1), 0.6);

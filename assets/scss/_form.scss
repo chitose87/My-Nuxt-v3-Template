@@ -1,0 +1,173 @@
+//@use "sass:math";
+//@use "../../_res/sass-global" as *;
+
+::placeholder {
+  color: color-gray(400);
+}
+
+*:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+
+  & + span {
+    opacity: 0.5;
+  }
+}
+
+:where(
+  input[type="text"],
+  input[type="search"],
+  input[type="email"],
+  input[type="url"],
+  input[type="password"],
+  input[type="date"],input[type="time"],
+  input[type="number"], input[type="tel"],
+  textarea
+) {
+  background-color: $color-bg-secondary;
+  font-family: sans-serif !important;
+  padding: 0.75rem 1rem;
+  border: 1px solid $color-bg-secondary;
+  line-height: 1.5;
+  display: block;
+  width: 100%;
+  @include mediaquery-sm {
+    min-height: 2.75em;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: color-gray(100);
+    background-color: color-mono(1);
+  }
+}
+
+textarea {
+}
+
+input[type="checkbox"], input[type="radio"] {
+  & + span {
+    margin-left: 0.25rem;
+  }
+}
+
+select {
+  color: $color-text-secondary;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 2.5rem;
+  border: 1px solid color-gray(400);
+  background-color: color-mono(1);
+  background-image: var(--i-arrow_b, none);
+  background-repeat: no-repeat;
+  background-size: 1em 1em;
+  background-position: calc(100% - 0.5rem) center;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+    color: $color-text;
+    border-color: color-gray(100);
+  }
+
+  &:disabled {
+    background-color: $color-bg-secondary;
+    border-color: color-gray(500);
+  }
+
+  //style
+  &.-simple {
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    padding-left: 2px;
+    background-position: calc(100% - 0.25rem) center;
+    @include mediaquery-sm {
+      padding-left: 1rem;
+    }
+
+    &:disabled {
+      background-color: transparent;
+    }
+  }
+}
+
+// custom
+.toggle-switch {
+  display: inline-block;
+  position: relative;
+  color: inherit;
+  text-decoration: none;
+  padding-right: (48px + 8px);
+  text-align: right;
+  font-size: 12px;
+  border: 0;
+  min-width: 48px;
+  line-height: 24px;
+  -webkit-appearance: none;
+  background-color: transparent;
+
+  &:before, &:after, + span:before, + span:after {
+    content: "";
+    display: block;
+    border-radius: 12px;
+    position: absolute;
+    right: 0;
+    //transition: all $tick $easeOut;
+  }
+
+  &:before, + span:before {
+    width: 48px;
+    height: 24px;
+    top: 0;
+    background-color: color-gray();
+  }
+
+  &:after, + span:after {
+    width: 20px;
+    height: 20px;
+    top: 2px;
+    background-color: color-mono(1);
+    transform: translateX(-26px);
+  }
+
+  &.-on {
+    &:before {
+      background-color: color-green();
+    }
+
+    &:after {
+      transform: translateX(-2px);
+    }
+  }
+
+  //
+  //&--on, &--off:focus, &[data-js-toggle="checked"], &:checked {
+  //  &:after {
+  //    transform: translateX(-2px) !important;
+  //  }
+  //}
+  //
+  //&--on, &--off:focus, &[data-js-toggle="checked"], &:checked {
+  //  &:before {
+  //    background-color: $color-green;
+  //  }
+  //}
+
+  &[disabled] {
+    opacity: 0.5;
+    cursor: default;
+    pointer-events: none;
+  }
+
+  @include mediaquery-not-sm {
+    &:not([disabled]):hover {
+      opacity: 0.8;
+    }
+
+    &:focus {
+      opacity: 1;
+    }
+  }
+}

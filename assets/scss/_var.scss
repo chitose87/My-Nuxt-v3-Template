@@ -1,0 +1,40 @@
+//@use "../../_res/sass-global" as *;
+
+:root {
+  // default sm
+  --mq: sm;
+  --container-padding: 32px;
+  --gutter: 8px;
+  --gap: 16px;
+  @include mediaquery-md {
+    --mq: md;
+    --container-padding: 40px;
+    --gutter: 16px;
+    --gap: 32px;
+  }
+  @include mediaquery-lg {
+    --mq: lg;
+    --container-padding: 64px;
+    --gutter: 20px;
+    --gap: 40px;
+  }
+
+  // js update
+  --vw: 10px;
+  --container-width: 1160px;
+  --col-width: 60px;
+  --container-wide-width: 1400px;
+  --col-wide-width: 80px;
+
+  @include setCustomValue();
+
+  // icons
+  //--i-empty: url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7");
+  //- https://ao-system.net/note/57
+  --i-circle-r: url('data:image/svg+xml;charset=utf8,%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20x%3D%220px%22%20y%3D%220px%22%0A%09%20viewBox%3D%220%200%2035%2035%22%20enable-background%3D%22new%200%200%2035%2035%22%20xml%3Aspace%3D%22preserve%22%3E%0A%3Cg%3E%0A%09%3Cpath%20d%3D%22M16.7%2C12.2c-0.4-0.4-0.4-1.1%2C0-1.5c0.4-0.4%2C1.1-0.4%2C1.5%2C0l6.1%2C6.1c0.4%2C0.4%2C0.4%2C1.1%2C0%2C1.5l-6.1%2C6.1c-0.4%2C0.4-1.1%2C0.4-1.5%2C0%0A%09%09c-0.4-0.4-0.4-1.1%2C0-1.5l4.3-4.3H10.6c-0.6%2C0-1.1-0.5-1.1-1.1s0.5-1.1%2C1.1-1.1H21L16.7%2C12.2z%22%2F%3E%0A%3C%2Fg%3E%0A%3Ccircle%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20fill%3D%22none%22%20stroke%3D%22%23000000%22%20stroke-width%3D%221.8281%22%20stroke-miterlimit%3D%2210%22%20cx%3D%2217.5%22%20cy%3D%2217.5%22%20r%3D%2216.1%22%2F%3E%0A%3C%2Fsvg%3E%0A');
+  --i-dl: url('data:image/svg+xml;charset=utf8,%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20x%3D%220px%22%20y%3D%220px%22%0A%09%20viewBox%3D%220%200%2032%2032%22%20enable-background%3D%22new%200%200%2032%2032%22%20xml%3Aspace%3D%22preserve%22%3E%0A%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M3%2C20h3v5h20v-5h3v8H3V20z%20M13%2C16V4h6v12h4l-7%2C7l-7-7H13z%22%2F%3E%0A%3C%2Fsvg%3E');
+  --i-search: url('data:image/svg+xml;charset=utf8,%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20x%3D%220px%22%20y%3D%220px%22%0A%09%20viewBox%3D%220%200%2022%2022%22%20style%3D%22enable-background%3Anew%200%200%2022%2022%3B%22%20xml%3Aspace%3D%22preserve%22%3E%0A%3Cpath%20d%3D%22M9.6%2C18.1c-4.8%2C0-8.6-4-8.6-8.8c0-4.7%2C3.9-8.5%2C8.6-8.6c4.8%2C0.1%2C8.6%2C4%2C8.6%2C8.8C18.1%2C14.3%2C14.3%2C18.1%2C9.6%2C18.1z%20M9.6%2C2.3c-4%2C0-7.2%2C3.2-7.2%2C7.2s3.2%2C7.2%2C7.2%2C7.2s7.2-3.2%2C7.2-7.2S13.6%2C2.3%2C9.6%2C2.3z%22%2F%3E%0A%3Cpath%20d%3D%22M20%2C21.2l-5-5l1-1l5%2C5L20%2C21.2z%22%2F%3E%0A%3C%2Fsvg%3E');
+  --i-share: url('data:image/svg+xml;charset=utf8,%3Csvg%20width%3D%2215%22%20height%3D%2216%22%20viewBox%3D%220%200%2015%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M11.9583%205.11538C13.224%205.11538%2014.25%204.0822%2014.25%202.80769C14.25%201.53319%2013.224%200.5%2011.9583%200.5C10.6927%200.5%209.66667%201.53319%209.66667%202.80769C9.66667%203.06448%209.70832%203.31147%209.78519%203.54219L4.54299%206.51155C4.12262%206.0105%203.49404%205.69231%202.79167%205.69231C1.52601%205.69231%200.5%206.7255%200.5%208C0.5%209.2745%201.52601%2010.3077%202.79167%2010.3077C3.49404%2010.3077%204.12262%209.9895%204.54299%209.48845L9.78519%2012.4578C9.70832%2012.6885%209.66667%2012.9355%209.66667%2013.1923C9.66667%2014.4668%2010.6927%2015.5%2011.9583%2015.5C13.224%2015.5%2014.25%2014.4668%2014.25%2013.1923C14.25%2011.9178%2013.224%2010.8846%2011.9583%2010.8846C11.256%2010.8846%2010.6274%2011.2028%2010.207%2011.7038L4.96482%208.73449C5.04168%208.50377%205.08333%208.25678%205.08333%208C5.08333%207.74321%205.04168%207.49622%204.96481%207.26551L10.207%204.29615C10.6274%204.79719%2011.256%205.11538%2011.9583%205.11538Z%22%20fill%3D%22%23000%22%2F%3E%0A%3C%2Fsvg%3E%0A');
+  --i-cross: url('data:image/svg+xml;charset=utf8,%3Csvg%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2012%2012%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M5.11612%206.00006L0.696699%2010.4195L1.58058%2011.3034L6%206.88394L10.4194%2011.3034L11.3033%2010.4195L6.88388%206.00006L11.3033%201.58064L10.4194%200.696761L6%205.11618L1.58058%200.696761L0.696699%201.58064L5.11612%206.00006Z%22%20fill%3D%22%23000%22%2F%3E%0A%3C%2Fsvg%3E%0A');
+  --i-file: url('data:image/svg+xml;charset=utf8,%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20x%3D%220px%22%20y%3D%220px%22%20width%3D%2214px%22%0A%09%20height%3D%2216px%22%20viewBox%3D%220%200%2014%2016%22%20enable-background%3D%22new%200%200%2014%2016%22%20xml%3Aspace%3D%22preserve%22%3E%0A%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M10.04%2C1H2.12v2.78H0.75v3.33h1.37V16h11.13V4.24L10.04%2C1z%20M3.22%2C7.11v7.78h8.93%0A%09V5.31H8.99V2.11H3.22v1.67h4.95v3.33H3.22z%20M11.65%2C4.19l-1.56-1.58v1.58H11.65z%22%2F%3E%0A%3C%2Fsvg%3E%0A');
+}

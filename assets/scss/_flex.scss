@@ -1,0 +1,20 @@
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $gap $gap;
+
+  &.is-nowrap {
+    flex-wrap: nowrap;
+  }
+
+  &.is-nogap {
+    gap: 0;
+  }
+  &.is-gap-sm{
+    gap: 0.5rem 0.5rem;
+  }
+
+  > .item {
+    flex: 1;
+  }
+}

@@ -1,0 +1,14 @@
+//- data-js-accordion
+[data-js-accordion] {
+  & + * {
+    overflow: hidden;
+    transition: height 0.5s $easeInOut;
+
+  }
+}
+
+[data-js-accordion="opened"] {
+  & + * {
+
+  }
+}

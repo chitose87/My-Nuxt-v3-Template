@@ -1,0 +1,26 @@
+@mixin font-normal($isConde:false) {
+  @if ($isConde) {
+    font-family: var(--font-normal-conde, sans-serif);
+  } @else {
+    font-family: var(--font-normal, sans-serif);
+  }
+  font-weight: 400;
+}
+
+@mixin font-medium($isConde:false) {
+  @if ($isConde) {
+    font-family: var(--font-medium-conde, sans-serif);
+  } @else {
+    font-family: var(--font-medium, sans-serif);
+  }
+  font-weight: 500;
+}
+
+@mixin font-bold($isConde:false) {
+  @if ($isConde) {
+    font-family: var(--font-bold-conde, sans-serif);
+  } @else {
+    font-family: var(--font-bold, sans-serif);
+  }
+  font-weight: 700;
+}

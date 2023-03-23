@@ -1,0 +1,23 @@
+.grid {
+  display: grid;
+  gap: $gap;
+
+
+  &.is-1x1 {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  &.is-1x1x1 {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  @include mediaquery-sm {
+    &.is-sp-1 {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  > .item {
+
+  }
+}

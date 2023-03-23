@@ -1,0 +1,14 @@
+.card {
+  @include infill-frame;
+  padding: 1rem;
+  border: 1px solid $color-border;
+  height: 100%;
+
+  &__head {
+
+  }
+
+  &__body {
+
+  }
+}

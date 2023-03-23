@@ -1,0 +1,69 @@
+//@use "sass:math";
+//@use "../../_res/sass-global" as *;
+
+.container, .container-wide, .container-thin, .container-fluid {
+  margin-left: auto;
+  margin-right: auto;
+  //outline: 1px solid red;
+  box-sizing: content-box;
+
+  padding-left: $container-padding;
+  padding-right: $container-padding;
+
+  & &:not([clear]) {
+    padding-left: unset;
+    padding-right: unset;
+  }
+}
+
+/** コンテンツ幅 **/
+.container {
+  @include mediaquery-sm {
+
+  }
+  @include mediaquery-not-sm {
+    max-width: $size-container;
+  }
+}
+
+/** ワイド幅 **/
+.container-wide {
+  @include mediaquery-sm {
+
+  }
+  @include mediaquery-not-sm {
+    max-width: $size-container-wide;
+  }
+}
+
+/** リード幅 **/
+.container-thin {
+  @include mediaquery-sm {
+
+  }
+  @include mediaquery-not-sm {
+    max-width: $size-container;
+    &__body {
+      width: map-get($size-col, 10);
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
+
+/** 画面幅 **/
+.container-fluid {
+  @include mediaquery-sm {
+
+  }
+  @include mediaquery-not-sm {
+  }
+}
+
+@include mediaquery-print {
+  .container, .container-wide {
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

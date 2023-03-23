@@ -1,0 +1,66 @@
+$container-padding: var(--container-padding);
+$size-container: (60 * 12) + (40px * 11);
+$size-container-wide: (80 * 12) + (40px * 11);
+
+$component-margin-top: 3rem;
+$component-margin-bottom: 1.5rem;
+$component-margin-top-sp: 2rem;
+$component-margin-bottom-sp: 2rem;
+
+$gutter: var(--gutter);
+$gap: var(--gap);
+$container-width: var(--container-width);
+// js update
+$vw: var(--vw);
+$col-width: var(--col-width);
+$container-wide-width: var(--container-wide-width);
+$col-wide-width: var(--col-wide-width);
+
+$size-col: (
+  1: calc(100% / 12 - 0.01px),
+  2: calc(100% / 6 - 0.01px),
+  3: 25%,
+  4: calc(100% / 3 - 0.01px),
+  5: calc(100% / 2.4 - 0.01px),
+  6: 50%,
+  7: calc(100% / 12 * 7 - 0.01px),
+  8: calc(100% / 1.5 - 0.01px),
+  9: 75%,
+  10: calc(100% / 1.2 - 0.01px),
+  11: calc(100% / 12 * 11 - 0.01px),
+  12: 100%
+);
+
+//(100w + g * 2) * (4 / 12) - (g * 2)
+$size-col-inner: (
+  1: calc((50% - var(--gutter) * 11) / 6),
+  2: calc((50% - var(--gutter) * 5) / 3),
+  3: calc((50% - var(--gutter) * 3) / 2),
+  4: calc((25% - var(--gutter)) / 0.75),
+  5: calc((250% - var(--gutter) * 7) / 6),
+  6: calc(50% - var(--gutter)),
+  7: calc((350% - var(--gutter) * 5) / 6),
+  8: calc((200% - var(--gutter) * 2) / 3),
+  9: calc((150% - var(--gutter)) / 2),
+  10: calc((250% - var(--gutter)) / 3),
+  11: calc((550% - var(--gutter)) / 6),
+  12:100%
+);
+
+//https://ja.numberempire.com/simplifyexpression.php
+//calc((100% + var(--gutter) * 2) * (n / 12) - var(--gutter))
+//(100w + g * 2) * (n / 12) - g
+$size-col2: (
+  1: calc((10% - var(--gutter)) / 1.2),
+  2: calc((25% - var(--gutter)) / 1.5),
+  3: calc((50% - var(--gutter)) / 2),
+  4: calc((100% - var(--gutter)) / 3),
+  5: calc((250% - var(--gutter)) / 6),
+  6: 50%,
+  7: calc((350% + var(--gutter)) / 6),
+  8: calc((200% + var(--gutter)) / 3),
+  9: calc((150% + var(--gutter)) / 2),
+  10: calc((125% + var(--gutter)) / 1.5),
+  11: calc((110% + var(--gutter)) / 1.2),
+  12:100%
+);

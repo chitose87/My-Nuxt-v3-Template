@@ -1,0 +1,24 @@
+@mixin hoge($step,$joint,$arr...) {
+  @each $v in $arr {
+    $trbl: nth($v, 1);
+    $after: nth($v, 2);
+
+    .is-m#{$trbl}#{$joint}-#{$step} { //r[class*="m#{$trbl}#{$joint}-#{$step}r"] {
+      margin#{$after}: #{$step*1.5}rem;
+    }
+    //
+    .is-p#{$trbl}#{$joint}-#{$step} { //r[class*="p#{$trbl}#{$joint}-#{$step}r"] {
+      padding#{$after}: #{$step*1.5}rem;
+    }
+  }
+}
+
+@for $step from 0 through 4 {
+  @include hoge($step, "", ("", ""), ("t", "-top"), ("r", "-right"), ("b", "-bottom"), ("l", "-left"));
+}
+
+@include mediaquery-sm {
+  @for $step from 0 through 4 {
+    @include hoge($step, "-sm", ("", ""), ("t", "-top"), ("r", "-right"), ("b", "-bottom"), ("l", "-left"));
+  }
+}

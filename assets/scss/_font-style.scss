@@ -1,0 +1,164 @@
+////@use "sass:math";
+////@use "../../_res/sass-global" as *;
+
+html, :root {
+  color: $color-text;
+  //box-sizing: border-box;
+  //-ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: "palt";
+  -webkit-font-feature-settings: "palt";
+  font-size: 16px; //=1rem
+  line-height: 2;
+  letter-spacing: 0.06em;
+
+  font-family: sans-serif;
+  font-family: var(--font-normal, sans-serif);
+  scroll-behavior: smooth;
+
+  @include mediaquery-print() {
+    color: color-mono(0);
+  }
+}
+
+@include mediaquery-print {
+  html, :root {
+    color: color-mono(0);
+  }
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  overflow-wrap: break-word;
+}
+
+h2, h3, h4, h5, h6, p {
+  margin-bottom: 1rem;
+}
+
+.caption {
+  font-size: 14px;
+  line-height: 1.75;
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+h1, .h1 {
+  //@include font-bold(true);
+  @include mediaquery-not-sm {
+    font-size: 36px;
+    line-height: 1.5;
+    margin-top: 5rem;
+    margin-bottom: 1.5rem;
+  }
+  @include mediaquery-sm {
+    font-size: 32px;
+    line-height: 1.5;
+    margin-top: 5rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+h2, .h2 {
+  //@include font-normal(true);
+  @include mediaquery-not-sm {
+    font-size: 36px;
+    line-height: 1.5;
+    margin-top: 5rem;
+    //margin-bottom: 1.5rem;
+  }
+  @include mediaquery-sm {
+    font-size: 32px;
+    line-height: 1.5;
+    margin-top: 5rem;
+    //margin-bottom: 1.5rem;
+  }
+}
+
+h3, .h3 {
+  //@include font-normal(true);
+  @include mediaquery-not-sm {
+    font-size: 30px;
+    line-height: 1.5;
+    margin-top: 4.5rem;
+    //margin-bottom: 1.5rem;
+  }
+  @include mediaquery-sm {
+    font-size: 24px;
+    line-height: 1.5;
+    margin-top: 4.5rem;
+    //margin-bottom: 1.5rem;
+  }
+}
+
+h4, .h4 {
+  //@include font-normal(true);
+  @include mediaquery-not-sm {
+    font-size: 24px;
+    line-height: 1.5;
+    margin-top: 4rem;
+    //margin-bottom: 1rem;
+  }
+  @include mediaquery-sm {
+    font-size: 20px;
+    line-height: 1.5;
+    margin-top: 3.5rem;
+    //margin-bottom: 1rem;
+  }
+}
+
+h5, .h5 {
+  //@include font-bold(true);
+  @include mediaquery-not-sm {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-top: 3rem;
+    //margin-bottom: 1rem;
+  }
+  @include mediaquery-sm {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-top: 2.5rem;
+    //margin-bottom: 1rem;
+  }
+}
+
+h6, .h6 {
+  //@include font-bold(true);
+  @include mediaquery-not-sm {
+    font-size: 16px;
+
+    margin-top: 2rem;
+    //margin-bottom: 1rem;
+  }
+  @include mediaquery-sm {
+    font-size: 16px;
+
+    margin-top: 1.5rem;
+    //margin-bottom: 1rem;
+  }
+}
+
+//.font-l {
+//  font-size: 18px;
+//}
+//
+//.font-s {
+//  font-size: 14px;
+//}
+//
+//.font-xs {
+//  font-size: 12px;
+//}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}

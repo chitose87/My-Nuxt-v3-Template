@@ -1,0 +1,103 @@
+@use "mediaquery" as *;
+@use "enum" as *;
+@use "color" as *;
+@use "font" as *;
+@use "animation" as *;
+
+@mixin infill-frame {
+  @include beforeCollapsinger();
+  @include afterCollapsinger();
+}
+
+// 強制的に相殺のようにする
+@mixin beforeCollapsinger($v:10rem) {
+  &:before {
+    content: "";
+    margin-top: $v * -1;
+    margin-bottom: $v;
+    display: block;
+    @content;
+  }
+}
+
+@mixin afterCollapsinger($v:10rem) {
+  &:after {
+    content: "";
+    margin-bottom: $v * -1;
+    margin-top: $v;
+    display: block;
+    @content;
+  }
+}
+
+// col系の計算をこれにまとめる
+@function getColSize($i) {
+  @if $i==12 {
+    @return 100%;
+  } @else {
+    @return calc((#{$i*100%} - #{12 - $i} * var(--gap)) / 12);
+  }
+}
+
+@mixin icon($name,$size:1.25em,$color:$color-text) {
+  @if ($name) {
+    -webkit-mask-image: var(#{"--i-"+$name}, url(""));
+  }
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  display: inline-block;
+  @if ($size) {
+    width: $size;
+    height: $size;
+  }
+  @if ($color) {
+    //background-color: $color;
+    background: $color;
+  }
+}
+
+@mixin arrow($size:10px, $w:2px,$color:color-gray(200)) {
+  content: "";
+  display: inline-block;
+  width: $size;
+  height: $size;
+  border-top: $w solid $color;
+  border-right: $w solid $color;
+  @content;
+}
+
+@mixin cross($noPosition:false,$w:18px, $h:2px, $color:color-gray(400), $deg:0deg) {
+  &:before, &:after {
+    transition: transform $t $ease-off, opacity $t $ease-off;
+    content: "";
+    display: inline-block;
+    position: absolute;
+    background-color: $color;
+    width: $w;
+    height: $h;
+    @if $noPosition==false {
+      top: 50%;
+      left: 50%;
+    }
+    @content;
+  }
+  &:before {
+    transform: translateX(-50%) rotate($deg);
+  }
+  &:after {
+    transform: translateX(-50%) rotate($deg + 90deg);
+  }
+}
+
+@mixin cross-expanded() {
+  &:before {
+    transition-timing-function: $ease-on, $ease-on;
+    transform: translateX(-50%) rotate(-90deg);
+    opacity: 0;
+  }
+
+  &:after {
+    transition-timing-function: $ease-on, $ease-on;
+    transform: translateX(-50%) rotate(0deg);
+  }
+}
