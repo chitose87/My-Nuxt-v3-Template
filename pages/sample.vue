@@ -1,6 +1,9 @@
 <template lang="pug">
 div
-  h1.border ページタイトル
+  h1 サンプル
+
+  section
+    .container
 
 </template>
 

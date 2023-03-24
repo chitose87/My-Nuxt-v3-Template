@@ -1,21 +1,23 @@
 //@import "sass:math";
 
-@import "_the-new-css-reset";
-@import "font-style";
-@import "var";
-@import "button-style";
-@import "form";
-@import "container";
-@import "space";
-//@import "column";
-@import "grid";
-@import "flex";
+//@import "_the-new-css-reset";
+//@import "font-style";
+//@import "var";
+//@import "button-style";
+//@import "form";
+//@import "container";
+//@import "space";
+////@import "column";
+//@import "grid";
+//@import "flex";
+//
+//@import "card";
+//
+//.is-w100 {
+//  width: 100%;
+//}
+//.is-center{
+//  text-align: center;
+//}
 
-@import "card";
-
-.is-w100 {
-  width: 100%;
-}
-.is-center{
-  text-align: center;
-}
+@import "bootstrap";
